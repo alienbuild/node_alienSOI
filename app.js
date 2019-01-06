@@ -1,12 +1,46 @@
 const yargs = require('yargs');
 
+console.log('Aliens made contact.');
+
+var mongoose = require("mongoose");
+mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/symbols", { useNewUrlParser: true });
+
+var symSchema = new mongoose.Schema({
+    company: String,
+    symbol: String,
+    exchange: String,
+    date: String,
+    open: String,
+    valueIncreased: String,
+    chart: [
+        {
+            volume: String,
+            close: String,
+            time: String,
+        },
+        {
+            volume: String,
+            close: String,
+            time: String,
+        },
+        {
+            volume: String,
+            close: String,
+            time: String,
+        }
+    ]
+});
+
+var Symbol = mongoose.model("Symbol", symSchema);
+
+
 const getSym = require('./symbols/symbol.js');
 
 const argv = yargs
     .options({
-        sym: {
-            demand: true,
-            alias: 'symbol',
+        update: {
+            demand: false,
+            alias: 'u',
             describe: 'Symbol to fetch data for',
             string: true
         }
@@ -15,10 +49,19 @@ const argv = yargs
     .alias('help', 'h')
     .argv;
 
-getSym.symbol(argv.sym, (errorMessage, results) => {
-    if (errorMessage) {
-        console.log(errorMessage);
-    } else {
-        console.log(JSON.stringify(results, undefined, 2));
-    }
+// Define an Array of Symbols
+var syms = new Array('fb','atvi');
+
+// For each symbol run the fetch request
+syms.forEach(function(val, index) {
+    getSym.symbol(val, (errorMessage, results) => {
+        if (errorMessage) {
+            console.log(errorMessage);
+        } else {
+            var data = new Symbol(results);
+            data.save();
+            console.log(`${results.symbol} has been updated.`);
+        }
+    });
 });
+
