@@ -3,7 +3,6 @@ const fs = require('fs');
 
 const symbol = (symbol, callback) => {
 
-    setTimeout(function(){
         const filters = '&filter=symbol,companyName,primaryExchange,change,volume,minute,close,label,date';
         const types = '&types=quote,chart&range=1d&chartInterval=30';
         fetch(`https://api.iextrading.com/1.0/stock/market/batch?symbols=${symbol}${types}`)
@@ -49,8 +48,8 @@ const symbol = (symbol, callback) => {
 
             }).catch((error) => {
             console.log('Error with ' + symbol + error);
+            fs.appendFileSync('errorList.txt', symbol +"\r\n");
         });
-    }, 4000);
 
 };
 

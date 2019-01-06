@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="824d1352-5ac1-4e6d-a5ce-425f1cd0d3a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/symbols/getSymList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errorList.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorList.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symbols/symbol.js" beforeDir="false" afterPath="$PROJECT_DIR$/symbols/symbol.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symlist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/symlist.txt" afterDir="false" />
     </list>
@@ -19,26 +19,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="70" column="25" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/symbols/symbol.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+            <state relative-caret-position="358">
+              <caret line="75" column="33" lean-forward="true" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
+              <folding>
+                <element signature="e#1883#2556#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/symbols/symbol.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/symlist.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="4" lean-forward="true" selection-end-line="8729" selection-end-column="8" />
+            <state relative-caret-position="228">
+              <caret line="8317" column="4" lean-forward="true" selection-start-line="8317" selection-start-column="4" selection-end-line="8317" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -46,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/symbols/getSymList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="70" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="70" />
+            <state relative-caret-position="238">
+              <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -82,11 +85,11 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/playground/getSymbols.js" />
-        <option value="$PROJECT_DIR$/symlist.txt" />
         <option value="$PROJECT_DIR$/symbols/getSymList.js" />
-        <option value="$PROJECT_DIR$/errorList.txt" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/symbols/symbol.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/symlist.txt" />
+        <option value="$PROJECT_DIR$/errorList.txt" />
       </list>
     </option>
   </component>
@@ -108,11 +111,6 @@
             <path>
               <item name="alienSOI" type="b2602c69:ProjectViewProjectNode" />
               <item name="alienSOI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alienSOI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alienSOI" type="462c0819:PsiDirectoryNode" />
-              <item name="symbols" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -155,12 +153,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1546696948710</updated>
-      <workItem from="1546696950421" duration="39829000" />
+      <workItem from="1546696950421" duration="43202000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39829000" />
+    <option name="totallyTimeSpent" value="43202000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -176,12 +174,12 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.45503792" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.30227518" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -231,34 +229,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/symlist.txt">
+    <entry file="file://$PROJECT_DIR$/symbols/getSymList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="4" lean-forward="true" selection-end-line="8729" selection-end-column="8" />
+        <state relative-caret-position="238">
+          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/symbols/symbol.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="32" column="53" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="75" column="33" lean-forward="true" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
+          <folding>
+            <element signature="e#1883#2556#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/errorList.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/symbols/getSymList.js">
+    <entry file="file://$PROJECT_DIR$/symlist.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="70" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="70" column="25" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/symbols/symbol.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        <state relative-caret-position="228">
+          <caret line="8317" column="4" lean-forward="true" selection-start-line="8317" selection-start-column="4" selection-end-line="8317" selection-end-column="4" />
         </state>
       </provider>
     </entry>
