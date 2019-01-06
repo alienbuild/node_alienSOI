@@ -3,7 +3,9 @@ const fetch = require("node-fetch");
 console.log('** Fetching stocks **');
 
 var symbol = (symbol, callback) => {
-    fetch(`https://api.iextrading.com/1.0/stock/market/batch?symbols=${symbol}&types=quote,chart&range=1d&chartInterval=30&filter=symbol,companyName,primaryExchange,change,volume,minute,close,label,date`)
+    const filters = '&filter=symbol,companyName,primaryExchange,change,volume,minute,close,label,date';
+    const types = '&types=quote,chart&range=1d&chartInterval=30';
+    fetch(`https://api.iextrading.com/1.0/stock/market/batch?symbols=${symbol}${types}${filters}`)
         .then(res=>res.json())
         .then(data=>{
 
@@ -18,6 +20,7 @@ var symbol = (symbol, callback) => {
             // Take values needed and send it back to app.js
             callback(undefined, {
                 company: data[symbol.toUpperCase()].quote.companyName,
+                key: `${data[symbol.toUpperCase()].chart[0].date}-${data[symbol.toUpperCase()].quote.symbol}`,
                 symbol: data[symbol.toUpperCase()].quote.symbol,
                 exchange: data[symbol.toUpperCase()].quote.primaryExchange,
                 date: data[symbol.toUpperCase()].chart[0].date,
