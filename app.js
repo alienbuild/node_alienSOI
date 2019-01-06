@@ -3,7 +3,7 @@ const fs = require("fs");
 const schedule = require('node-schedule');
 
 schedule.scheduleJob('0 0 * * *', function(){
-    console.log('The answer to life, the universe, and everything!');
+    updateSymbols();
 });
 
 console.log('Aliens made contact.');
@@ -61,14 +61,26 @@ const syms = symFile.split('\r\n');
 console.log(syms);
 
 // For each symbol run the fetch request
-syms.forEach(function(val, index) {
-    getSym.symbol(val, (errorMessage, results) => {
-        if (errorMessage) {
-            console.log(errorMessage);
-        } else {
-            const data = new Symbol(results);
-            data.save();
-            console.log(`[${results.symbol}] stock has been updated.`);
-        }
+const updateSymbols = () => {
+    console.log('** Fetching Stocks **');
+    syms.forEach(function (val, index) {
+        getSym.symbol(val, (errorMessage, results) => {
+            if (errorMessage) {
+                console.log(errorMessage);
+            } else {
+                const data = new Symbol(results);
+                var query = {key: results.key};
+                Symbol.findOneAndUpdate(query, results, {upsert: true}, function (err, doc) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        console.log(`[${results.symbol}] stock has been updated.`);
+                    }
+                });
+
+
+            }
+        });
     });
-});
+    console.log('Finished.');
+};

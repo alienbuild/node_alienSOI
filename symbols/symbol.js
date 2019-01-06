@@ -1,7 +1,5 @@
 const fetch = require("node-fetch");
 
-console.log('** Fetching stocks **');
-
 var symbol = (symbol, callback) => {
     const filters = '&filter=symbol,companyName,primaryExchange,change,volume,minute,close,label,date';
     const types = '&types=quote,chart&range=1d&chartInterval=30';
