@@ -53,6 +53,12 @@ const argv = yargs
             alias: 'update',
             describe: 'Update all symbols',
             string: true
+        },
+        s: {
+            demand: false,
+            alias: 'symbol',
+            describe: 'Symbol to retrieve information',
+            string: true
         }
     })
     .help()
@@ -67,8 +73,7 @@ const syms = symFile.split('\r\n');
 const updateSymbols = () => {
     console.log(`** Fetching Stocks - ${new Date()} **`);
 
-    const interval = 1 * 20; // 10 seconds;
-
+    const interval = 1 * 20; // Adjust delay;
 
     // For each symbol run the fetch request
     syms.forEach(function (val, index) {
@@ -107,4 +112,17 @@ if (argv.update) {
 if (argv.getSymbols) {
     console.log('Getting symbols');
     getSymList();
+}
+
+// Find Queries
+if (argv.symbol) {
+    let query = argv.symbol;
+    query = query.toUpperCase();
+    Symbol.find({"symbol": query}, function (err, symbol) {
+        console.log('Finding symbol: ' + query);
+        if (err) {
+            console.log(err);
+        }
+        console.log(JSON.stringify(symbol, undefined, 2));
+    });
 }
