@@ -1,49 +1,17 @@
 const yargs = require('yargs');
-const fs = require("fs");
-const schedule = require('node-schedule');
 const mongoose = require("mongoose");
-const getSym = require('./symbols/symbol.js');
+const schedules = require('./schedules/notify');
 const getSymList = require('./symbols/getSymList.js');
-
-// Run these tasks at midnight every single day
-schedule.scheduleJob('0 0 * * *', function(){
-    updateSymbols();
-});
+const Symbol = require('./models/symbols');
+const updateSymbols = require('./symbols/updateSymbols.js');
+const liveScan = require('./livescan/live.js');
 
 // Did you start correctly?
-console.log('Aliens spotted.');
+console.log('App reporting for duty.');
+schedules.schedules();
 
 // MongoDB + Mongoose
 mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/symbols", { useNewUrlParser: true });
-
-const symSchema = new mongoose.Schema({
-    company: String,
-    key: String,
-    symbol: String,
-    exchange: String,
-    date: String,
-    open: String,
-    valueIncreased: String,
-    chart: [
-        {
-            volume: String,
-            close: String,
-            time: String,
-        },
-        {
-            volume: String,
-            close: String,
-            time: String,
-        },
-        {
-            volume: String,
-            close: String,
-            time: String,
-        }
-    ]
-});
-
-const Symbol = mongoose.model("Symbol", symSchema);
 
 // Commands
 const argv = yargs
@@ -59,48 +27,24 @@ const argv = yargs
             alias: 'symbol',
             describe: 'Symbol to retrieve information',
             string: true
+        },
+        live: {
+            demand: false,
+            alias: 'liverun',
+            describe: 'Run a live scan at market open',
+            string: false
         }
     })
     .help()
     .alias('help', 'h')
     .argv;
 
-// Define an Array of Symbols
-const symFile = fs.readFileSync("./symlist.txt", "utf-8"); // Symbol list
-const syms = symFile.split('\r\n');
 
-// Used to update daily data for all symbols
-const updateSymbols = () => {
-    console.log(`** Fetching Stocks - ${new Date()} **`);
-
-    const interval = 1 * 20; // Adjust delay;
-
-    // For each symbol run the fetch request
-    syms.forEach(function (val, index) {
-
-        setTimeout( function (index) {
-            getSym.symbol(val, (errorMessage, results) => {
-                if (errorMessage) {
-                    console.log(errorMessage);
-                } else {
-                    // Save updated data for each symbol into Mongo
-                    const data = new Symbol(results);
-                    var query = {key: results.key};
-                    Symbol.findOneAndUpdate(query, results, {upsert: true}, function (err, doc) {
-                        if (err) {
-                            // Fail?
-                            console.log(err);
-                        } else {
-                            // Success
-                            console.log(`[${results.symbol}] stock has been updated.`);
-                        }
-                    });
-                }
-            });
-        },interval * index, index);
-
-    });
-};
+// Live Scan
+if (argv.live) {
+    console.log('** Running Live Scan **');
+    liveScan();
+}
 
 // Update manually requested
 if (argv.update) {
@@ -114,7 +58,7 @@ if (argv.getSymbols) {
     getSymList();
 }
 
-// Find Queries
+// Find Symbol
 if (argv.symbol) {
     let query = argv.symbol;
     query = query.toUpperCase();

@@ -10,7 +10,7 @@ const symbol = (symbol, callback) => {
             .then(data=>{
                 // Did the stock gain or loose in value today after one hour?
                 let valueIncreased;
-                if (data[symbol.toUpperCase()].chart[2].close > data[symbol.toUpperCase()].chart[0].close) {
+                if (data[symbol.toUpperCase()].chart[2].close > data[symbol.toUpperCase()].quote.open) {
                     // Stock gained value after one hour
                     valueIncreased = 1;
                 } else{
@@ -30,7 +30,7 @@ const symbol = (symbol, callback) => {
                     chart: [
                         {
                             volume: data[symbol.toUpperCase()].chart[0].volume,
-                            close: data[symbol.toUpperCase()].chart[0].close,
+                            close: data[symbol.toUpperCase()].quote.open,
                             time: data[symbol.toUpperCase()].chart[0].label
                         },
                         {
@@ -48,7 +48,6 @@ const symbol = (symbol, callback) => {
 
             }).catch((error) => {
             console.log('Error with ' + symbol + error);
-            fs.appendFileSync('errorList.txt', symbol +"\r\n");
         });
 
 };
